@@ -7,6 +7,7 @@ book:
   date: "12/18/2024"
   chapters:
     - index.qmd
+    - sh01/sh01.ipynb
   downloads: ["pdf"]
   page-navigation: true
 
