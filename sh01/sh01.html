@@ -460,8 +460,8 @@ E.g. if January 13th was Wednesday that year, then the input parameter is 2. If 
 <li><p>In this case we can determine the highest platform in <strong>11</strong> steps at worst case with the following procedure (by dividing the stand in 3 equal parts)</p>
 <ol type="1">
 <li>Test first glass in the highest platform in the lower third, i.e.&nbsp;the 11th platform. If it breaks then we must test the other glass in the remaining 10 platforms in the lower third linearly until it breaks the first time: 10 + 1 = <strong>11</strong> tries at worst.</li>
-<li>if it doesn’t break, then we have to try the lowest platform in the upper third, i.e.&nbsp;the 21st platform. If the glass breaks here, then we have to search in the middle third, i.e.&nbsp;we have to test the platforms 12..20 with the other glass linearly, until it breaks. This totals to 1 + 1 + 9 = <strong>11</strong> tries in worst case.</li>
-<li>If the glass doesn’t break in the 21st platform, then we must search the upper third platform with the other glass, namely the platforms 22…30, linearly until the glass breaks. This totals to 1 + 1 + 9 = <strong>11</strong> tries in worst case.</li>
+<li>if the first glass doesn’t break, then we try the lowest platform in the upper third, i.e.&nbsp;the 21st platform with this glass. If the glass breaks here, then we search the middle third, i.e.&nbsp;we test the platforms 12..20 with the other glass linearly, until it breaks. This totals to 1 + 1 + 9 = <strong>11</strong> tries in worst case.</li>
+<li>If first glass doesn’t break in the 21st platform, then we continue to search the upper third platform with it, namely the platforms 22…30, linearly until the glass breaks or we reach the end. This totals to 1 + 1 + 9 = <strong>11</strong> tries in worst case.</li>
 </ol></li>
 </ol>
 
