@@ -8,8 +8,11 @@ book:
   chapters:
     - index.qmd
     - sh01/sh01.ipynb
+    - sh02/sh02.ipynb
   downloads: ["pdf"]
   page-navigation: true
+
+number-depth: 1
 
 bibliography: references.bib
 
