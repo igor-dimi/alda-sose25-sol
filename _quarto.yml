@@ -9,6 +9,7 @@ book:
     - index.qmd
     - sh01/sh01.ipynb
     - sh02/sh02.ipynb
+    - sh03/03.ipynb
   downloads: ["pdf"]
   page-navigation: true
 
