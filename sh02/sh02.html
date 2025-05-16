@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../sh03/03.html" rel="next">
 <link href="../sh01/sh01.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -189,6 +190,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sheet 2</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sh03/03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Blatt 03</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -225,7 +232,7 @@ window.Quarto = {
 </header>
 
 
-<div id="b163e447" class="cell" data-quarto="{&quot;echo&quot;:false}" data-tags="[&quot;echo: false&quot;]" data-execution_count="58">
+<div id="b163e447" class="cell" data-quarto="{&quot;echo&quot;:false}" data-tags="[&quot;echo: false&quot;]" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="properties-of-sorting-algorithms" class="level2">
@@ -286,7 +293,7 @@ N-1) a[N-2] &lt;= a[N-1]</code></pre>
 <span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> quick_sort(a) :</span>
 <span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>   quick_sort_impl(a, <span class="dv">0</span>, <span class="bu">len</span>(a) <span class="op">-</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We modify them slightly to return the number of comparisons:</p>
-<div id="b3e80c37" class="cell" data-execution_count="59">
+<div id="b3e80c37" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> insertion_sort(a) :</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    N <span class="op">=</span> <span class="bu">len</span>(a)</span>
@@ -305,7 +312,7 @@ N-1) a[N-2] &lt;= a[N-1]</code></pre>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>            k <span class="op">-=</span> <span class="dv">1</span></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> count</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="7018c2e2" class="cell" data-execution_count="60">
+<div id="7018c2e2" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> partition(a, l, r):  <span class="co"># l, r are left and right boundaries (inclusive) of a</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    count <span class="op">=</span> <span class="dv">0</span></span>
@@ -339,56 +346,53 @@ N-1) a[N-2] &lt;= a[N-1]</code></pre>
 <span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> quick_sort_impl(a, <span class="dv">0</span>, <span class="bu">len</span>(a) <span class="op">-</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we write a simple script that aggregates the counts of sorts in lists, and subsequently plot the lists:</p>
-<div id="4cbf4263" class="cell" data-execution_count="61">
+<div id="4cbf4263" class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>insertion_counts <span class="op">=</span> []</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> N <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(N))</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    random.shuffle(a)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    insertion_counts.append(insertion_sort(a))</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>quick_counts <span class="op">=</span> []</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> N <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(N))</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    random.shuffle(a)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    quick_counts.append(quick_sort(a))</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>insertion_sorted_counts <span class="op">=</span> []</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> N <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(N))</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># random.shuffle(a)</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    insertion_sorted_counts.append(insertion_sort(a))</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_counts(sorting_function, shuffle <span class="op">=</span> <span class="va">True</span>, MAX <span class="op">=</span> <span class="dv">100</span>):</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    counts_array <span class="op">=</span> []</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> N <span class="kw">in</span> <span class="bu">range</span>(MAX):</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        count <span class="op">=</span> <span class="dv">0</span> </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            a <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(N))</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> shuffle :</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>                random.shuffle(a)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>            count <span class="op">+=</span> sorting_function(a)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        count <span class="op">/=</span> <span class="dv">5</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        counts_array.append(count)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> counts_array</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>insertion_counts <span class="op">=</span> create_counts(insertion_sort)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>quick_counts <span class="op">=</span> create_counts(quick_sort)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co"># insertion_sorted_counts = create_counts(insertion_sort, False)</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Prepare input sizes ---</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>N_values <span class="op">=</span> np.arange(<span class="dv">100</span>)</span>
 <span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Prepare input sizes ---</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>N_values <span class="op">=</span> np.arange(<span class="dv">100</span>)</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Theoretical curves with estimated constants ---</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>d1, e1, f1 <span class="op">=</span> <span class="fl">0.25</span>, <span class="dv">0</span>, <span class="dv">0</span>  <span class="co"># Insertion Sort: Quadratic</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>d2, e2, f2 <span class="op">=</span> <span class="fl">0.9</span>, <span class="dv">0</span>, <span class="dv">0</span>   <span class="co"># Quick Sort: N log N</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Theoretical curves with estimated constants ---</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>d1, e1, f1 <span class="op">=</span> <span class="fl">0.25</span>, <span class="dv">0</span>, <span class="dv">0</span>  <span class="co"># Insertion Sort: Quadratic</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>d2, e2, f2 <span class="op">=</span> <span class="fl">0.9</span>, <span class="dv">0</span>, <span class="dv">0</span>   <span class="co"># Quick Sort: N log N</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>insertion_theoretical <span class="op">=</span> d1 <span class="op">*</span> N_values<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> e1 <span class="op">*</span> N_values <span class="op">+</span> f1</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>quick_theoretical <span class="op">=</span> d2 <span class="op">*</span> N_values <span class="op">*</span> np.log2(N_values <span class="op">+</span> <span class="dv">1</span>) <span class="op">+</span> e2 <span class="op">*</span> N_values <span class="op">+</span> f2</span>
 <span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>insertion_theoretical <span class="op">=</span> d1 <span class="op">*</span> N_values<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> e1 <span class="op">*</span> N_values <span class="op">+</span> f1</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>quick_theoretical <span class="op">=</span> d2 <span class="op">*</span> N_values <span class="op">*</span> np.log2(N_values <span class="op">+</span> <span class="dv">1</span>) <span class="op">+</span> e2 <span class="op">*</span> N_values <span class="op">+</span> f2</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Plot everything ---</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>plt.plot(insertion_counts, label<span class="op">=</span><span class="st">"Insertion Sort (Empirical)"</span>)</span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>plt.plot(quick_counts, label<span class="op">=</span><span class="st">"Quick Sort (Empirical)"</span>)</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.plot(insertion_sorted_counts, label="Insertion Sort (Sorted Input)")</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Plot everything ---</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>plt.plot(insertion_counts, label<span class="op">=</span><span class="st">"Insertion Sort (Empirical)"</span>)</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>plt.plot(quick_counts, label<span class="op">=</span><span class="st">"Quick Sort (Empirical)"</span>)</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.plot(insertion_sorted_counts, label="Insertion Sort (Sorted Input)")</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>plt.plot(N_values, insertion_theoretical, <span class="st">'k--'</span>, label<span class="op">=</span><span class="st">"~ 0.25·N²"</span>)  <span class="co"># Dashed black</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>plt.plot(N_values, quick_theoretical, <span class="st">'r--'</span>, label<span class="op">=</span><span class="st">"~ 0.9·N·log₂(N)"</span>)  <span class="co"># Dashed red</span></span>
 <span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>plt.plot(N_values, insertion_theoretical, <span class="st">'k--'</span>, label<span class="op">=</span><span class="st">"~ 0.25·N²"</span>)  <span class="co"># Dashed black</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>plt.plot(N_values, quick_theoretical, <span class="st">'r--'</span>, label<span class="op">=</span><span class="st">"~ 0.9·N·log₂(N)"</span>)  <span class="co"># Dashed red</span></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Input Size N"</span>)</span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Operation Count"</span>)</span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Empirical vs Theoretical Sorting Performance"</span>)</span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Input Size N"</span>)</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Operation Count"</span>)</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Empirical vs Theoretical Sorting Performance"</span>)</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -399,47 +403,35 @@ N-1) a[N-2] &lt;= a[N-1]</code></pre>
 </div>
 <p>We see that insertion sort is well approximated by the function <span class="math inline">\(0.25\cdot N^2\)</span> and quick sort by <span class="math inline">\(0.9\cdot N\cdot\log_2{N}\)</span>, confirming our theoretical expectations.</p>
 <p>Next we do the same for already sorted arrays:</p>
-<div id="0562067d" class="cell" data-execution_count="62">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>insertion_counts <span class="op">=</span> []</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> N <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(N))</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># random.shuffle(a)</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    insertion_counts.append(insertion_sort(a))</span>
+<div id="0562067d" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>insertion_counts <span class="op">=</span> create_counts(insertion_sort, <span class="va">False</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>quick_counts <span class="op">=</span> create_counts(quick_sort, <span class="va">False</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Prepare input sizes ---</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>N_values <span class="op">=</span> np.arange(<span class="dv">100</span>)</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>quick_counts <span class="op">=</span> []</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> N <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(N))</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># random.shuffle(a)</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    quick_counts.append(quick_sort(a))</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Theoretical curves with estimated constants ---</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>d1, e1 <span class="op">=</span> <span class="dv">1</span>, <span class="dv">0</span>  <span class="co"># Insertion Sort: Quadratic</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>d2, e2, f2 <span class="op">=</span> <span class="fl">0.9</span>, <span class="dv">0</span>, <span class="dv">0</span>   <span class="co"># Quick Sort: N log N</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># insertion_theoretical = d1 * N_values**2 + e1 * N_values + f1</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>insertion_theoretical <span class="op">=</span> d1 <span class="op">*</span> N_values <span class="op">+</span> e1</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>quick_theoretical <span class="op">=</span> d2 <span class="op">*</span> N_values <span class="op">*</span> np.log2(N_values <span class="op">+</span> <span class="dv">1</span>) <span class="op">+</span> e2 <span class="op">*</span> N_values <span class="op">+</span> f2</span>
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Prepare input sizes ---</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>N_values <span class="op">=</span> np.arange(<span class="dv">100</span>)</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Theoretical curves with estimated constants ---</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>d1, e1 <span class="op">=</span> <span class="dv">1</span>, <span class="dv">0</span>  <span class="co"># Insertion Sort: Quadratic</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>d2, e2, f2 <span class="op">=</span> <span class="fl">0.9</span>, <span class="dv">0</span>, <span class="dv">0</span>   <span class="co"># Quick Sort: N log N</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Plot everything ---</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>plt.plot(insertion_counts, label<span class="op">=</span><span class="st">"Insertion Sort (Empirical)"</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>plt.plot(quick_counts, label<span class="op">=</span><span class="st">"Quick Sort (Empirical)"</span>)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.plot(insertion_sorted_counts, label="Insertion Sort (Sorted Input)")</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>plt.plot(N_values, insertion_theoretical, <span class="st">'k--'</span>, label<span class="op">=</span><span class="st">"~ N"</span>)  <span class="co"># Dashed black</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>plt.plot(N_values, quick_theoretical, <span class="st">'r--'</span>, label<span class="op">=</span><span class="st">"~ 0.9·N·log₂(N)"</span>)  <span class="co"># Dashed red</span></span>
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co"># insertion_theoretical = d1 * N_values**2 + e1 * N_values + f1</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>insertion_theoretical <span class="op">=</span> d1 <span class="op">*</span> N_values <span class="op">+</span> e1</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>quick_theoretical <span class="op">=</span> d2 <span class="op">*</span> N_values <span class="op">*</span> np.log2(N_values <span class="op">+</span> <span class="dv">1</span>) <span class="op">+</span> e2 <span class="op">*</span> N_values <span class="op">+</span> f2</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Plot everything ---</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>plt.plot(insertion_counts, label<span class="op">=</span><span class="st">"Insertion Sort (Empirical)"</span>)</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>plt.plot(quick_counts, label<span class="op">=</span><span class="st">"Quick Sort (Empirical)"</span>)</span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.plot(insertion_sorted_counts, label="Insertion Sort (Sorted Input)")</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>plt.plot(N_values, insertion_theoretical, <span class="st">'k--'</span>, label<span class="op">=</span><span class="st">"~ N"</span>)  <span class="co"># Dashed black</span></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>plt.plot(N_values, quick_theoretical, <span class="st">'r--'</span>, label<span class="op">=</span><span class="st">"~ 0.9·N·log₂(N)"</span>)  <span class="co"># Dashed red</span></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Input Size N"</span>)</span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Operation Count"</span>)</span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Empirical vs Theoretical Sorting Performance - Sorted Arrays"</span>)</span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Input Size N"</span>)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Operation Count"</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Empirical vs Theoretical Sorting Performance - Sorted Arrays"</span>)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -451,7 +443,7 @@ N-1) a[N-2] &lt;= a[N-1]</code></pre>
 <p>Here we see that insertion sort is linear while quicksort is still <span class="math inline">\(\mathcal{O}N\log(N)\)</span>, approximated by the same function from previous output. Thus insertion sort outperforms quicksort for already sorted arrays.</p>
 <p>Next we compare how quicksort works on already sorted arrays, if the pivot is not randomly chosen, but always chosen as the right-most element - the naive version.</p>
 <p>We first define this naive quick sort version:</p>
-<div id="18e4f661" class="cell" data-execution_count="63">
+<div id="18e4f661" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> partition2(a, l, r):  <span class="co"># l, r are left and right boundaries (inclusive) of a</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    count <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    pivot <span class="op">=</span> a[r]</span>
@@ -482,53 +474,41 @@ N-1) a[N-2] &lt;= a[N-1]</code></pre>
 <span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> quick_sort_impl2(a, <span class="dv">0</span>, <span class="bu">len</span>(a) <span class="op">-</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Next we perform the same experiments from before and plot the results:</p>
-<div id="9bd620ea" class="cell" data-execution_count="64">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>insertion_counts <span class="op">=</span> []</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> N <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(N))</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    insertion_counts.append(insertion_sort(a))</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<div id="9bd620ea" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>insertion_counts <span class="op">=</span> create_counts(insertion_sort, <span class="va">False</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>quick2_counts <span class="op">=</span> create_counts(quick_sort2, <span class="va">False</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>quick_counts <span class="op">=</span> create_counts(quick_sort, <span class="va">False</span>)</span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>quick2_counts <span class="op">=</span> []</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> N <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(N))</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    quick2_counts.append(quick_sort2(a))</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>quick_counts <span class="op">=</span> []</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> N <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(N))</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    quick_counts.append(quick_sort(a))</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Prepare input sizes ---</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>N_values <span class="op">=</span> np.arange(<span class="dv">100</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Theoretical curves with estimated constants ---</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>d1, e1, f1 <span class="op">=</span> <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">0</span>  <span class="co"># Quick Sort Naive Pivot: Quadratic</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>d2, e2, f2 <span class="op">=</span> <span class="fl">0.9</span>, <span class="dv">0</span>, <span class="dv">0</span>   <span class="co"># Quick Sort: N log N</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>d3, e3 <span class="op">=</span> <span class="dv">1</span>, <span class="dv">0</span> <span class="co"># Insetion sort: linear</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>quick2_theoretical <span class="op">=</span> d1 <span class="op">*</span> N_values<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> e1 <span class="op">*</span> N_values <span class="op">+</span> f1</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>quick_theoretical <span class="op">=</span> d2 <span class="op">*</span> N_values <span class="op">*</span> np.log2(N_values <span class="op">+</span> <span class="dv">1</span>) <span class="op">+</span> e2 <span class="op">*</span> N_values <span class="op">+</span> f2</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>insertion_theoretical <span class="op">=</span> d3 <span class="op">*</span> N_values <span class="op">+</span> e3</span>
 <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Prepare input sizes ---</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>N_values <span class="op">=</span> np.arange(<span class="dv">100</span>)</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Theoretical curves with estimated constants ---</span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>d1, e1, f1 <span class="op">=</span> <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">0</span>  <span class="co"># Quick Sort Naive Pivot: Quadratic</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>d2, e2, f2 <span class="op">=</span> <span class="fl">0.9</span>, <span class="dv">0</span>, <span class="dv">0</span>   <span class="co"># Quick Sort: N log N</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>d3, e3 <span class="op">=</span> <span class="dv">1</span>, <span class="dv">0</span> <span class="co"># Insetion sort: linear</span></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>quick2_theoretical <span class="op">=</span> d1 <span class="op">*</span> N_values<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> e1 <span class="op">*</span> N_values <span class="op">+</span> f1</span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>quick_theoretical <span class="op">=</span> d2 <span class="op">*</span> N_values <span class="op">*</span> np.log2(N_values <span class="op">+</span> <span class="dv">1</span>) <span class="op">+</span> e2 <span class="op">*</span> N_values <span class="op">+</span> f2</span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>insertion_theoretical <span class="op">=</span> d3 <span class="op">*</span> N_values <span class="op">+</span> e3</span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Plot everything ---</span></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>plt.plot(quick2_counts, label<span class="op">=</span><span class="st">"Quick Sort Naive Pivot (Empirical)"</span>)</span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>plt.plot(N_values, quick2_theoretical, <span class="st">'r--'</span>, label<span class="op">=</span><span class="st">"~ 0.5*N**2"</span>)  <span class="co"># Dashed red</span></span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>plt.plot(quick_counts, label<span class="op">=</span><span class="st">"Quick Sort Random Pivot (Empirical)"</span>)</span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>plt.plot(N_values, quick_theoretical, <span class="st">'c--'</span>, label<span class="op">=</span><span class="st">"~ 0.9*N*log(N)"</span>)  <span class="co"># Dashed red</span></span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>plt.plot(insertion_counts, label<span class="op">=</span><span class="st">"Insertion Sort (Empirical)"</span>)</span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>plt.plot(N_values, insertion_theoretical, <span class="st">'k--'</span>, label<span class="op">=</span><span class="st">"~ N"</span>)  <span class="co"># Dashed black</span></span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Input Size N"</span>)</span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Operation Count"</span>)</span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Empirical vs Theoretical Sorting Performance - Sorted Array"</span>)</span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Plot everything ---</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>plt.plot(quick2_counts, label<span class="op">=</span><span class="st">"Quick Sort Naive Pivot (Empirical)"</span>)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>plt.plot(N_values, quick2_theoretical, <span class="st">'r--'</span>, label<span class="op">=</span><span class="st">"~ 0.5*N**2"</span>)  <span class="co"># Dashed red</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>plt.plot(quick_counts, label<span class="op">=</span><span class="st">"Quick Sort Random Pivot (Empirical)"</span>)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>plt.plot(N_values, quick_theoretical, <span class="st">'c--'</span>, label<span class="op">=</span><span class="st">"~ 0.9*N*log(N)"</span>)  <span class="co"># Dashed red</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>plt.plot(insertion_counts, label<span class="op">=</span><span class="st">"Insertion Sort (Empirical)"</span>)</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>plt.plot(N_values, insertion_theoretical, <span class="st">'k--'</span>, label<span class="op">=</span><span class="st">"~ N"</span>)  <span class="co"># Dashed black</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Input Size N"</span>)</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Operation Count"</span>)</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Empirical vs Theoretical Sorting Performance - Sorted Array"</span>)</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -962,6 +942,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../sh03/03.html" class="pagination-link" aria-label="Blatt 03">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Blatt 03</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
